@@ -8,89 +8,90 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
         body { font-family: 'Inter', system_ui, sans-serif; }
-        .hero-video { filter: brightness(0.65); }
+        h1, h2 { font-family: 'Playfair Display', serif; }
+        .hero-video { filter: brightness(0.75); }
         .package-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .package-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgb(34 197 151); }
-        .vehicle-btn.active { background-color: #22c55e; color: black; }
+        .package-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgb(14 165 233); }
+        .vehicle-btn.active { background-color: #0ea5e9; color: white; }
     </style>
 </head>
-<body class="bg-zinc-900 text-white">
+<body class="bg-white text-slate-900">
 
-    <!-- Navbar (kept exactly as yours) -->
-    <nav class="bg-black border-b border-green-500 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Navbar (bright & clean) -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <img src="https://supremegleamdetailing.com/wp-content/uploads/2025/10/cropped-1000009246-32x32.jpg" alt="Supreme Gleam" class="h-10">
-                <span class="text-2xl font-bold tracking-tight">Supreme Gleam</span>
+                <span class="text-3xl font-bold tracking-tight text-slate-900">Supreme Gleam</span>
             </div>
-            <div class="hidden md:flex gap-8 text-sm font-medium">
-                <a href="index.html" class="text-green-400">Home</a>
-                <a href="services.html" class="hover:text-green-400">Services</a>
-                <a href="gallery.html" class="hover:text-green-400">Gallery</a>
-                <a href="about.html" class="hover:text-green-400">About</a>
-                <a href="contact.html" class="hover:text-green-400">Contact</a>
+            <div class="hidden md:flex gap-8 text-base font-medium">
+                <a href="index.html" class="text-sky-600">Home</a>
+                <a href="services.html" class="hover:text-sky-600">Services</a>
+                <a href="gallery.html" class="hover:text-sky-600">Gallery</a>
+                <a href="about.html" class="hover:text-sky-600">About</a>
+                <a href="contact.html" class="hover:text-sky-600">Contact</a>
             </div>
-            <a href="contact.html" class="bg-green-500 hover:bg-green-600 text-black font-semibold px-6 py-3 rounded-2xl transition">
+            <a href="contact.html" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-8 py-3.5 rounded-3xl transition text-base">
                 Get a Quote
             </a>
         </div>
     </nav>
 
-    <!-- HERO VIDEO + VEHICLE SELECTOR (YurCar style) -->
+    <!-- HERO VIDEO (YurCar style) -->
     <header class="relative h-screen flex items-center overflow-hidden">
         <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover hero-video">
-            <!-- REPLACE THIS WITH YOUR OWN VIDEO URL (1080p loop recommended) -->
+            <!-- REPLACE WITH YOUR OWN VIDEO URL -->
             <source src="https://assets.mixkit.co/videos/preview/1010/1010-small.mp4" type="video/mp4">
         </video>
         
-        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
-            <h1 class="text-6xl md:text-7xl font-bold tracking-tighter leading-none mb-6">
+        <!-- Subtle dark overlay for text readability -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40"></div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
+            <h1 class="text-6xl md:text-7xl font-bold tracking-tighter leading-none mb-6 text-white">
                 LIFE IS MESSY.<br>WE GOT YOU.
             </h1>
-            <p class="text-2xl md:text-3xl text-green-400 mb-8">Premium mobile detailing in The Woodlands, Kingwood &amp; Montgomery County</p>
+            <p class="text-2xl md:text-3xl text-white/90 mb-10">Premium mobile detailing in The Woodlands, Kingwood &amp; Montgomery County</p>
             
             <!-- Vehicle Selector -->
-            <div class="inline-flex bg-white/10 backdrop-blur-xl rounded-3xl p-2 mb-12 border border-white/10 mx-auto">
-                <button onclick="selectVehicle(0)" id="veh-0" class="vehicle-btn active px-8 py-4 rounded-3xl text-sm font-semibold flex items-center gap-2 transition-all">🚗 Sedan / Coupe</button>
-                <button onclick="selectVehicle(1)" id="veh-1" class="vehicle-btn px-8 py-4 rounded-3xl text-sm font-semibold flex items-center gap-2 transition-all">🚙 Midsize SUV</button>
-                <button onclick="selectVehicle(2)" id="veh-2" class="vehicle-btn px-8 py-4 rounded-3xl text-sm font-semibold flex items-center gap-2 transition-all">🛻 Full-Size Truck / SUV</button>
+            <div class="inline-flex bg-white/95 backdrop-blur-xl rounded-3xl p-2 mb-12 border border-white shadow-xl mx-auto">
+                <button onclick="selectVehicle(0)" id="veh-0" class="vehicle-btn active px-8 py-4 rounded-3xl text-base font-semibold flex items-center gap-2 transition-all">🚗 Sedan / Coupe</button>
+                <button onclick="selectVehicle(1)" id="veh-1" class="vehicle-btn px-8 py-4 rounded-3xl text-base font-semibold flex items-center gap-2 transition-all">🚙 Midsize SUV</button>
+                <button onclick="selectVehicle(2)" id="veh-2" class="vehicle-btn px-8 py-4 rounded-3xl text-base font-semibold flex items-center gap-2 transition-all">🛻 Full-Size Truck / SUV</button>
             </div>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a onclick="openBookingModal()" class="bg-green-500 hover:bg-green-600 text-black font-semibold text-xl px-10 py-5 rounded-2xl inline-block transition cursor-pointer">
+                <a onclick="openBookingModal()" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold text-xl px-12 py-6 rounded-3xl inline-block transition cursor-pointer shadow-lg">
                     Get Your Price Now
                 </a>
-                <a href="tel:9365492997" class="border border-white hover:bg-white hover:text-black font-semibold text-xl px-10 py-5 rounded-2xl inline-flex items-center gap-3 transition">
-                    <i class="fas fa-phone"></i> Call 936-549-2997
+                <a href="tel:9365492997" class="border-2 border-white text-white hover:bg-white hover:text-slate-900 font-semibold text-xl px-10 py-6 rounded-3xl inline-flex items-center gap-3 transition">
+                    <i class="fas fa-phone"></i> 936-549-2997
                 </a>
             </div>
         </div>
 
-        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-xs tracking-widest flex gap-8">
-            <div class="text-center"><div class="text-green-400 text-3xl font-bold">4.98</div>AVG RATING</div>
-            <div class="text-center"><div class="text-green-400 text-3xl font-bold">1,284</div>CARS GLEAMING</div>
-            <div class="text-center"><div class="text-green-400 text-3xl font-bold">15%</div>MONTGOMERY CO. DISCOUNT</div>
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-white flex gap-10 text-sm font-medium tracking-widest">
+            <div class="text-center"><div class="text-4xl font-bold text-sky-300">4.98</div>AVG RATING</div>
+            <div class="text-center"><div class="text-4xl font-bold text-sky-300">1,284</div>CARS GLEAMING</div>
+            <div class="text-center"><div class="text-4xl font-bold text-sky-300">15%</div>MONTGOMERY CO. DISCOUNT</div>
         </div>
     </header>
 
-    <!-- Services / Packages (now swipeable + dynamic pricing) -->
-    <section class="py-20 bg-zinc-900">
+    <!-- PACKAGES SECTION (swipeable + live pricing) -->
+    <section class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-4">Choose Your Glow</h2>
-            <p class="text-center text-green-400 mb-12">Prices update instantly based on your vehicle • Swipe or scroll →</p>
+            <h2 class="text-5xl font-bold text-center mb-4">Choose Your Glow</h2>
+            <p class="text-center text-slate-600 text-xl mb-12">Prices update instantly based on your vehicle • Swipe →</p>
 
             <div id="packages-container" class="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide">
-                <!-- Populated by JavaScript -->
+                <!-- JS populates these cards -->
             </div>
         </div>
     </section>
 
-    <!-- Rest of your original page content can go here (keep your current sections below this) -->
-
     <script>
-        // Vehicle multipliers (adjust if needed)
         const multipliers = [1.00, 1.32, 1.65]; // Sedan, Midsize, Large
         let currentVehicle = 0;
 
@@ -116,13 +117,12 @@
             packages.forEach(pkg => {
                 const price = Math.round(pkg.basePrice * multipliers[currentVehicle]);
                 const cardHTML = `
-                    <div class="package-card bg-zinc-800 p-8 rounded-3xl border border-green-500/30 min-w-[320px] snap-center">
-                        <h3 class="text-2xl font-semibold mb-2">${pkg.name}</h3>
-                        <p class="text-green-400 text-5xl font-bold mb-1">$${price}</p>
-                        <p class="text-zinc-400 mb-6">${pkg.duration}</p>
-                        <p class="text-zinc-400 text-sm mb-8">Prices adjust for larger vehicles</p>
+                    <div class="package-card bg-white p-8 rounded-3xl border border-slate-200 min-w-[340px] snap-center shadow-sm hover:shadow-xl">
+                        <h3 class="text-2xl font-semibold mb-3">${pkg.name}</h3>
+                        <p class="text-sky-500 text-6xl font-bold mb-1">$${price}</p>
+                        <p class="text-slate-500 mb-8">${pkg.duration}</p>
                         <a href="https://calendly.com/david-toptechmobile/express-wash-vacuum" target="_blank"
-                           class="block text-center bg-green-500 text-black font-semibold py-3 px-6 rounded-2xl hover:bg-green-600 transition">
+                           class="block text-center bg-sky-500 text-white font-semibold py-4 px-8 rounded-3xl hover:bg-sky-600 transition text-lg">
                             Book This Package
                         </a>
                     </div>
@@ -132,10 +132,9 @@
         }
 
         function openBookingModal() {
-            alert("🎉 Booking flow coming next! For now, use the Calendly buttons above.");
+            alert("🎉 Booking modal coming soon! For now, use the 'Book This Package' buttons or the Calendly links.");
         }
 
-        // Initial load
         window.onload = renderPackages;
     </script>
 </body>
