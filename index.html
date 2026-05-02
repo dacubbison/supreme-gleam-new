@@ -34,16 +34,10 @@
             opacity: 0;
         }
         @keyframes floatBubble {
-            0% {
-                transform: translateY(100vh) scale(0.6);
-                opacity: 0;
-            }
+            0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
-            100% {
-                transform: translateY(-100px) scale(1.2);
-                opacity: 0;
-            }
+            100% { transform: translateY(-100px) scale(1.2); opacity: 0; }
         }
     </style>
 </head>
@@ -77,12 +71,11 @@
     <!-- HERO VIDEO + BUBBLES -->
     <header class="relative h-screen flex items-center overflow-hidden">
         <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover hero-video">
-            <!-- REPLACE WITH YOUR OWN VIDEO URL -->
-            <source src="https://assets.mixkit.co/videos/preview/1010/1010-small.mp4" type="video/mp4">
+            <source src="/hero-detailing.mp4" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60"></div>
         
-        <!-- Floating Bubbles Container -->
+        <!-- Floating Bubbles -->
         <div id="bubbles"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
@@ -108,7 +101,6 @@
             <h2 class="text-5xl font-bold text-center mb-4">Choose Your Glow</h2>
             <p class="text-center text-blue-300 text-xl mb-8">Prices update instantly • Select your vehicle</p>
 
-            <!-- Cleaner vehicle selector -->
             <div class="flex flex-wrap justify-center gap-4 mb-12">
                 <button onclick="selectVehicle(0)" id="veh-0" class="vehicle-btn active px-10 py-5 rounded-3xl text-lg font-semibold flex items-center gap-3 border border-white/30 hover:border-blue-400">🚗 Sedan / Coupe</button>
                 <button onclick="selectVehicle(1)" id="veh-1" class="vehicle-btn px-10 py-5 rounded-3xl text-lg font-semibold flex items-center gap-3 border border-white/30 hover:border-blue-400">🚙 Midsize SUV</button>
@@ -122,11 +114,10 @@
     </section>
 
     <script>
-        // Vehicle pricing logic (same as before)
         const multipliers = [1.00, 1.32, 1.65];
         let currentVehicle = 0;
 
-        const packages = [ /* same packages as last version */ 
+        const packages = [
             { name: "Full Express Detail", time: "(2-3 Hour Turn Around)", popular: false, price: 199, includes: ["Hand Wash & Dry","Window Cleaning","Full Interior Vacuum","Interior Wipe Down","Steam Cleaning (Dash & Plastics)","Seat Refresh & Air Freshener"] },
             { name: "Full Executive Detail", time: "(3-6 Hour Turn Around)", popular: true, price: 265, includes: ["Everything in Express Detail","Pet Hair Removal","Hand Wash & Premium Wax","Tire Shine","Light Stain Removal","Seat Shampooing"] },
             { name: "Elite Detail", time: "(5-8 Hour Turn Around)", popular: false, price: 399, includes: ["Everything in Executive Detail","Hand Wash & Wax","Deep Stain Extraction","Interior Conditioning & Protection","Maximum gloss & restoration"] }
@@ -163,30 +154,21 @@
             alert("🎉 Booking modal coming soon!");
         }
 
-        // === FLOATING BUBBLES ===
+        // Floating bubbles
         function createBubbles() {
             const container = document.getElementById('bubbles');
             for (let i = 0; i < 45; i++) {
                 const bubble = document.createElement('div');
                 bubble.className = 'bubble';
-                
                 const size = Math.random() * 28 + 12;
                 bubble.style.width = `${size}px`;
                 bubble.style.height = `${size}px`;
                 bubble.style.left = `${Math.random() * 100}vw`;
                 bubble.style.bottom = `-${size}px`;
-                
                 const duration = Math.random() * 8 + 6;
                 bubble.style.animationDuration = `${duration}s`;
                 bubble.style.animationDelay = `-${Math.random() * 12}s`;
-                
-                // slight random horizontal drift
-                bubble.style.setProperty('--drift', `${(Math.random() - 0.5) * 80}px`);
-                bubble.style.transform = `translateX(${Math.random() * 40 - 20}px)`;
-                
                 container.appendChild(bubble);
-                
-                // remove after animation ends
                 bubble.addEventListener('animationend', () => {
                     bubble.remove();
                     createSingleBubble();
@@ -208,7 +190,6 @@
             bubble.addEventListener('animationend', () => bubble.remove());
         }
 
-        // Initial load
         window.onload = () => {
             renderPackages();
             createBubbles();
