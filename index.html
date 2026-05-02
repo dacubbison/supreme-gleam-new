@@ -14,12 +14,42 @@
         .hero-video { filter: brightness(0.65); }
         .package-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .package-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgb(59 130 246); }
-        .vehicle-btn.active { background-color: #3b82f6; color: white; }
+        .vehicle-btn { transition: all 0.3s ease; }
+        .vehicle-btn.active { background-color: #3b82f6; color: white; box-shadow: 0 10px 15px -3px rgb(59 130 246); }
+
+        /* FLOATING BUBBLES */
+        #bubbles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 5;
+        }
+        .bubble {
+            position: absolute;
+            background: rgba(147, 197, 253, 0.35);
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(147, 197, 253, 0.6);
+            animation: floatBubble linear forwards;
+            opacity: 0;
+        }
+        @keyframes floatBubble {
+            0% {
+                transform: translateY(100vh) scale(0.6);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-100px) scale(1.2);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body class="bg-[#0a0a0a] text-white">
 
-    <!-- Top limited special banner (YurCar style) -->
+    <!-- Top limited special banner -->
     <div class="bg-gradient-to-r from-blue-600 to-blue-700 py-3 text-center text-sm font-semibold">
         LIMITED SPECIAL • EXPRESS DETAIL <span class="line-through opacity-70">$240</span> <span class="text-yellow-300">$199</span> • SPOTS FILLING FAST!
     </div>
@@ -44,7 +74,7 @@
         </div>
     </nav>
 
-    <!-- HERO VIDEO -->
+    <!-- HERO VIDEO + BUBBLES -->
     <header class="relative h-screen flex items-center overflow-hidden">
         <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover hero-video">
             <!-- REPLACE WITH YOUR OWN VIDEO URL -->
@@ -52,19 +82,15 @@
         </video>
         <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60"></div>
         
+        <!-- Floating Bubbles Container -->
+        <div id="bubbles"></div>
+
         <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
             <h1 class="text-6xl md:text-7xl font-bold tracking-tighter leading-none mb-6 text-white">
                 LIFE IS MESSY.<br>WE GOT YOU.
             </h1>
             <p class="text-2xl md:text-3xl text-blue-300 mb-12">Premium mobile detailing • The Woodlands, Kingwood &amp; Montgomery County</p>
             
-            <!-- Vehicle Selector -->
-            <div class="inline-flex bg-white/10 backdrop-blur-xl rounded-3xl p-2 mb-12 border border-white/20 mx-auto">
-                <button onclick="selectVehicle(0)" id="veh-0" class="vehicle-btn active px-8 py-4 rounded-3xl text-base font-semibold flex items-center gap-2 transition-all">🚗 Sedan / Coupe</button>
-                <button onclick="selectVehicle(1)" id="veh-1" class="vehicle-btn px-8 py-4 rounded-3xl text-base font-semibold flex items-center gap-2 transition-all">🚙 Midsize SUV</button>
-                <button onclick="selectVehicle(2)" id="veh-2" class="vehicle-btn px-8 py-4 rounded-3xl text-base font-semibold flex items-center gap-2 transition-all">🛻 Full-Size Truck / SUV</button>
-            </div>
-
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a onclick="openBookingModal()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xl px-12 py-6 rounded-3xl inline-block transition shadow-lg">
                     Get Your Price Now
@@ -76,111 +102,117 @@
         </div>
     </header>
 
-    <!-- PACKAGES SECTION – YurCar style -->
+    <!-- PACKAGES SECTION -->
     <section class="py-20 bg-[#0a0a0a]">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-5xl font-bold text-center mb-4">Choose Your Glow</h2>
-            <p class="text-center text-blue-300 text-xl mb-12">Prices update instantly • Select your vehicle</p>
+            <p class="text-center text-blue-300 text-xl mb-8">Prices update instantly • Select your vehicle</p>
+
+            <!-- Cleaner vehicle selector -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button onclick="selectVehicle(0)" id="veh-0" class="vehicle-btn active px-10 py-5 rounded-3xl text-lg font-semibold flex items-center gap-3 border border-white/30 hover:border-blue-400">🚗 Sedan / Coupe</button>
+                <button onclick="selectVehicle(1)" id="veh-1" class="vehicle-btn px-10 py-5 rounded-3xl text-lg font-semibold flex items-center gap-3 border border-white/30 hover:border-blue-400">🚙 Midsize SUV</button>
+                <button onclick="selectVehicle(2)" id="veh-2" class="vehicle-btn px-10 py-5 rounded-3xl text-lg font-semibold flex items-center gap-3 border border-white/30 hover:border-blue-400">🛻 Full-Size Truck / SUV</button>
+            </div>
 
             <div id="packages-container" class="grid md:grid-cols-3 gap-8">
-                <!-- JS populates the three detailed cards -->
+                <!-- JS populated cards -->
             </div>
         </div>
     </section>
 
     <script>
-        const multipliers = [1.00, 1.32, 1.65]; // Sedan, Midsize, Large
+        // Vehicle pricing logic (same as before)
+        const multipliers = [1.00, 1.32, 1.65];
         let currentVehicle = 0;
 
-        const packages = [
-            {
-                name: "Full Express Detail",
-                time: "(2-3 Hour Turn Around)",
-                popular: false,
-                price: 199,
-                includes: [
-                    "Hand Wash & Dry",
-                    "Window Cleaning",
-                    "Full Interior Vacuum",
-                    "Interior Wipe Down",
-                    "Steam Cleaning (Dash & Plastics)",
-                    "Seat Refresh & Air Freshener"
-                ]
-            },
-            {
-                name: "Full Executive Detail",
-                time: "(3-6 Hour Turn Around)",
-                popular: true,
-                price: 265,
-                includes: [
-                    "Everything in Express Detail",
-                    "Pet Hair Removal",
-                    "Hand Wash & Premium Wax",
-                    "Tire Shine",
-                    "Light Stain Removal",
-                    "Seat Shampooing"
-                ]
-            },
-            {
-                name: "Elite Detail",
-                time: "(5-8 Hour Turn Around)",
-                popular: false,
-                price: 399,
-                includes: [
-                    "Everything in Executive Detail",
-                    "Hand Wash & Wax",
-                    "Deep Stain Extraction",
-                    "Interior Conditioning & Protection",
-                    "Maximum gloss & restoration"
-                ]
-            }
+        const packages = [ /* same packages as last version */ 
+            { name: "Full Express Detail", time: "(2-3 Hour Turn Around)", popular: false, price: 199, includes: ["Hand Wash & Dry","Window Cleaning","Full Interior Vacuum","Interior Wipe Down","Steam Cleaning (Dash & Plastics)","Seat Refresh & Air Freshener"] },
+            { name: "Full Executive Detail", time: "(3-6 Hour Turn Around)", popular: true, price: 265, includes: ["Everything in Express Detail","Pet Hair Removal","Hand Wash & Premium Wax","Tire Shine","Light Stain Removal","Seat Shampooing"] },
+            { name: "Elite Detail", time: "(5-8 Hour Turn Around)", popular: false, price: 399, includes: ["Everything in Executive Detail","Hand Wash & Wax","Deep Stain Extraction","Interior Conditioning & Protection","Maximum gloss & restoration"] }
         ];
 
         function selectVehicle(index) {
             currentVehicle = index;
-            document.querySelectorAll('.vehicle-btn').forEach((btn, i) => {
-                btn.classList.toggle('active', i === index);
-            });
+            document.querySelectorAll('.vehicle-btn').forEach((btn, i) => btn.classList.toggle('active', i === index));
             renderPackages();
         }
 
         function renderPackages() {
             const container = document.getElementById('packages-container');
             container.innerHTML = '';
-
             packages.forEach(pkg => {
                 const price = Math.round(pkg.price * multipliers[currentVehicle]);
                 const cardHTML = `
                     <div class="package-card bg-[#111111] border border-blue-500/30 rounded-3xl p-8 flex flex-col h-full relative">
                         ${pkg.popular ? `<div class="absolute -top-3 left-8 bg-blue-600 text-white text-xs font-bold px-6 py-1 rounded-3xl">MOST POPULAR</div>` : ''}
-                        
                         <h3 class="text-3xl font-semibold mb-1">${pkg.name}</h3>
                         <p class="text-blue-300 mb-6">${pkg.time}</p>
-                        
                         <div class="text-blue-400 text-6xl font-bold mb-8">$${price}</div>
-                        
                         <div class="mb-8">
                             <p class="uppercase text-xs tracking-widest text-slate-400 mb-4">Includes:</p>
-                            <ul class="space-y-3 text-slate-200">
-                                ${pkg.includes.map(item => `<li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> ${item}</li>`).join('')}
-                            </ul>
+                            <ul class="space-y-3 text-slate-200">${pkg.includes.map(item => `<li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> ${item}</li>`).join('')}</ul>
                         </div>
-                        
-                        <a href="https://calendly.com/david-toptechmobile/express-wash-vacuum" target="_blank"
-                           class="mt-auto block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-3xl transition text-lg">
-                            BOOK THIS PACKAGE
-                        </a>
-                    </div>
-                `;
+                        <a href="https://calendly.com/david-toptechmobile/express-wash-vacuum" target="_blank" class="mt-auto block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-3xl transition text-lg">BOOK THIS PACKAGE</a>
+                    </div>`;
                 container.innerHTML += cardHTML;
             });
         }
 
         function openBookingModal() {
-            alert("🎉 Booking modal ready when you are! (Calendly or custom form)");
+            alert("🎉 Booking modal coming soon!");
         }
 
-        window.onload = renderPackages;
+        // === FLOATING BUBBLES ===
+        function createBubbles() {
+            const container = document.getElementById('bubbles');
+            for (let i = 0; i < 45; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                
+                const size = Math.random() * 28 + 12;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}vw`;
+                bubble.style.bottom = `-${size}px`;
+                
+                const duration = Math.random() * 8 + 6;
+                bubble.style.animationDuration = `${duration}s`;
+                bubble.style.animationDelay = `-${Math.random() * 12}s`;
+                
+                // slight random horizontal drift
+                bubble.style.setProperty('--drift', `${(Math.random() - 0.5) * 80}px`);
+                bubble.style.transform = `translateX(${Math.random() * 40 - 20}px)`;
+                
+                container.appendChild(bubble);
+                
+                // remove after animation ends
+                bubble.addEventListener('animationend', () => {
+                    bubble.remove();
+                    createSingleBubble();
+                });
+            }
+        }
+
+        function createSingleBubble() {
+            const container = document.getElementById('bubbles');
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            const size = Math.random() * 28 + 12;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${Math.random() * 100}vw`;
+            bubble.style.bottom = `-${size}px`;
+            bubble.style.animationDuration = `${Math.random() * 8 + 6}s`;
+            container.appendChild(bubble);
+            bubble.addEventListener('animationend', () => bubble.remove());
+        }
+
+        // Initial load
+        window.onload = () => {
+            renderPackages();
+            createBubbles();
+        };
     </script>
 </body>
 </html>
