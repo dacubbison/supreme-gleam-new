@@ -48,11 +48,11 @@
         LIMITED SPECIAL • EXPRESS DETAIL <span class="line-through opacity-70">$240</span> <span class="text-yellow-300">$199</span> • SPOTS FILLING FAST!
     </div>
 
-    <!-- Navbar with your new logo -->
+    <!-- Navbar with your official logo -->
     <nav class="bg-black border-b border-blue-500 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="/supremegleamlogo.jpg" alt="Supreme Gleam" class="h-14">
+                <img src="/supremegleamlogo.jpg" alt="Supreme Gleam Detailing" class="h-14">
             </div>
             <div class="hidden md:flex gap-8 text-base font-medium">
                 <a href="index.html" class="text-blue-400">Home</a>
@@ -67,7 +67,7 @@
         </div>
     </nav>
 
-    <!-- HERO + BUBBLES -->
+    <!-- HERO VIDEO + BUBBLES -->
     <header class="relative h-screen flex items-center overflow-hidden">
         <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover hero-video">
             <source src="/hero-detailing.mp4" type="video/mp4">
@@ -92,7 +92,7 @@
         </div>
     </header>
 
-    <!-- PACKAGES SECTION - YOUR REAL PACKAGES -->
+    <!-- PACKAGES SECTION -->
     <section class="py-20 bg-[#0a0a0a]">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-5xl font-bold text-center mb-4">Choose Your Glow</h2>
@@ -109,16 +109,30 @@
     </section>
 
     <script>
-        const multipliers = [1.00, 1.19, 1.24];
         let currentVehicle = 0;
 
         const packages = [
-            { name: "Express Wash & Vacuum", time: "(45-60 min)", popular: false, basePrice: 100,
-              includes: ["Luxurious foam bath pre-soak","Gentle hand wash","Full interior vacuum","Interior wipe down","Premium tire & wheel dressing"] },
-            { name: "Signature Standard Detail", time: "(2 hrs)", popular: true, basePrice: 170,
-              includes: ["Pre-Treat For Bugs / Foam Bath","Wheels & Wheel Well Detail","Gentle Hand Wash & Door Jambs","Detail seams, crevices & emblems","Spot Free rinse & Plush Towel Dry","Exterior & Interior Glass Cleaning","Deep clean doors, dash & plastics"] },
-            { name: "Supreme Ultimate Detail", time: "(3+ hrs)", popular: false, basePrice: 320,
-              includes: ["Everything in Signature Standard","Deep Clean Leather & Conditioning","Hot Water Extraction & Foam Shampoo","UV & Stain Protectant","Pneumatic Air Dry Fabrics","Premium Ceramic Sealant (4 months)","Clay Treatment & Paint Iron Removal"] }
+            { 
+                name: "Express Wash & Vacuum", 
+                time: "(45-60 min)", 
+                popular: false, 
+                price: [100, 110, 120],
+                includes: ["Luxurious foam bath pre-soak","Gentle hand wash","Full interior vacuum","Interior wipe down","Premium tire & wheel dressing"]
+            },
+            { 
+                name: "Signature Standard Detail", 
+                time: "(2 hrs)", 
+                popular: true, 
+                price: [170, 190, 210],
+                includes: ["Pre-Treat For Bugs / Foam Bath","Wheels & Wheel Well Detail","Gentle Hand Wash & Door Jambs","Detail seams, crevices & emblems","Spot Free rinse & Plush Towel Dry","Exterior & Interior Glass Cleaning","Deep clean doors, dash & plastics"]
+            },
+            { 
+                name: "Supreme Ultimate Detail", 
+                time: "(3+ hrs)", 
+                popular: false, 
+                price: [320, 345, 365],
+                includes: ["Everything in Signature Standard","Deep Clean Leather & Conditioning","Hot Water Extraction & Foam Shampoo","UV & Stain Protectant","Pneumatic Air Dry Fabrics","Premium Ceramic Sealant (4 months)","Clay Treatment & Paint Iron Removal"]
+            }
         ];
 
         function selectVehicle(index) {
@@ -131,7 +145,7 @@
             const container = document.getElementById('packages-container');
             container.innerHTML = '';
             packages.forEach(pkg => {
-                const price = Math.round(pkg.basePrice * multipliers[currentVehicle]);
+                const price = pkg.price[currentVehicle];
                 const cardHTML = `
                     <div class="package-card bg-[#111111] border border-blue-500/30 rounded-3xl p-8 flex flex-col h-full relative">
                         ${pkg.popular ? `<div class="absolute -top-3 left-8 bg-blue-600 text-white text-xs font-bold px-6 py-1 rounded-3xl">MOST POPULAR</div>` : ''}
@@ -139,7 +153,7 @@
                         <p class="text-blue-300 mb-6">${pkg.time}</p>
                         <div class="text-blue-400 text-6xl font-bold mb-8">$${price}</div>
                         <div class="mb-8">
-                            <p class="uppercase text-xs tracking-widest text-slate-400 mb-4">Includes:</p>
+                            <p class="uppercase text-xs tracking-widest text-slate-400 mb-4">INCLUDES:</p>
                             <ul class="space-y-3 text-slate-200">${pkg.includes.map(item => `<li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> ${item}</li>`).join('')}</ul>
                         </div>
                         <a href="https://calendly.com/david-toptechmobile/express-wash-vacuum" target="_blank" class="mt-auto block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-3xl transition text-lg">BOOK THIS PACKAGE</a>
@@ -148,10 +162,12 @@
             });
         }
 
-        function openBookingModal() { alert("🎉 Booking modal coming soon!"); }
+        function openBookingModal() {
+            alert("🎉 Booking modal coming soon!");
+        }
 
-        // Bubbles
-        function createBubbles() { /* same bubble code as before */ 
+        // Floating bubbles
+        function createBubbles() {
             const container = document.getElementById('bubbles');
             for (let i = 0; i < 45; i++) {
                 const bubble = document.createElement('div');
@@ -161,7 +177,8 @@
                 bubble.style.height = `${size}px`;
                 bubble.style.left = `${Math.random() * 100}vw`;
                 bubble.style.bottom = `-${size}px`;
-                bubble.style.animationDuration = `${Math.random() * 8 + 6}s`;
+                const duration = Math.random() * 8 + 6;
+                bubble.style.animationDuration = `${duration}s`;
                 bubble.style.animationDelay = `-${Math.random() * 12}s`;
                 container.appendChild(bubble);
                 bubble.addEventListener('animationend', () => { bubble.remove(); createSingleBubble(); });
@@ -181,7 +198,10 @@
             bubble.addEventListener('animationend', () => bubble.remove());
         }
 
-        window.onload = () => { renderPackages(); createBubbles(); };
+        window.onload = () => {
+            renderPackages();
+            createBubbles();
+        };
     </script>
 </body>
 </html>
