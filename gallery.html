@@ -3,58 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Supreme Gleam Detailing</title>
+    <meta name="description" content="Before and after photos of our mobile car detailing work in The Woodlands, Kingwood, Atascocita, Conroe & Montgomery County, TX. Supreme Gleam Detailing results.">
+    <title>Gallery - Supreme Gleam Detailing | The Woodlands, Kingwood & Montgomery County</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
         body { font-family: 'Inter', system_ui, sans-serif; }
+        h1, h2 { font-family: 'Playfair Display', serif; }
+        .gallery-img { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .gallery-img:hover { transform: scale(1.04); }
     </style>
 </head>
-<body class="bg-zinc-950 text-white">
+<body class="bg-[#0a0a0a] text-white">
 
-            <!-- FIXED NAVBAR - WORKS LOCALLY AND ON VERCEL -->
-    <nav class="bg-black border-b border-green-500 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Navbar -->
+    <nav class="bg-black border-b border-blue-500 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="https://supremegleamdetailing.com/wp-content/uploads/2025/10/cropped-1000009246-32x32.jpg" alt="Supreme Gleam" class="h-10">
-                <span class="text-2xl font-bold tracking-tight">Supreme Gleam</span>
+                <img src="/supremegleamlogo.jpg" alt="Supreme Gleam Detailing" class="h-14">
             </div>
-            <div class="hidden md:flex gap-8 text-sm font-medium">
-                <a href="index.html" class="hover:text-green-400">Home</a>
-                <a href="services.html" class="hover:text-green-400">Services</a>
-                <a href="gallery.html" class="hover:text-green-400">Gallery</a>
-                <a href="about.html" class="hover:text-green-400">About</a>
-                <a href="contact.html" class="hover:text-green-400">Contact</a>
+            <div class="hidden md:flex gap-8 text-base font-medium">
+                <a href="index.html" class="hover:text-blue-400">Home</a>
+                <a href="services.html" class="hover:text-blue-400">Services</a>
+                <a href="gallery.html" class="text-blue-400">Gallery</a>
+                <a href="about.html" class="hover:text-blue-400">About</a>
+                <a href="contact.html" class="hover:text-blue-400">Contact</a>
             </div>
-            <a href="contact.html" class="bg-green-500 hover:bg-green-600 text-black font-semibold px-6 py-3 rounded-xl transition">
-                Get a Quote
+            <a href="tel:9365492997" class="flex items-center gap-2 hover:text-blue-400 transition">
+                <i class="fas fa-phone"></i> 936-549-2997
             </a>
         </div>
     </nav>
 
-    <div class="max-w-7xl mx-auto px-6 py-16">
-        <h1 class="text-5xl font-bold text-center mb-4">See the Supreme Difference</h1>
-        <p class="text-center text-green-400 mb-12">Before &amp; After Mobile Detailing in The Woodlands, Kingwood &amp; Montgomery County TX</p>
+    <div class="max-w-7xl mx-auto px-6 py-20">
+        <h1 class="text-5xl font-bold text-center mb-4">Our Work</h1>
+        <p class="text-center text-blue-300 text-xl mb-16">Real results from The Woodlands, Kingwood, Atascocita, Conroe & Montgomery County</p>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <!-- Your real photos from the export folder will go here -->
-            <img src="https://supremegleamdetailing.com/wp-content/uploads/2025/10/jan-vlacuha-fiX-yj3skKg-unsplash.jpg" alt="Before & After" class="rounded-2xl w-full aspect-square object-cover hover:scale-105 transition">
-            <img src="https://supremegleamdetailing.com/wp-content/uploads/2025/10/jan-vlacuha-BAZ0pmUkd4Y-unsplash.jpg" alt="Before & After" class="rounded-2xl w-full aspect-square object-cover hover:scale-105 transition">
-            <img src="https://supremegleamdetailing.com/wp-content/uploads/2025/10/nik-JSaL0mfqB3U-unsplash.jpg" alt="Before & After" class="rounded-2xl w-full aspect-square object-cover hover:scale-105 transition">
-            <img src="https://supremegleamdetailing.com/wp-content/uploads/2025/10/steve-pancrate-c22oD8aKhlg-unsplash.jpg" alt="Before & After" class="rounded-2xl w-full aspect-square object-cover hover:scale-105 transition">
-            <img src="https://supremegleamdetailing.com/wp-content/uploads/2025/10/zac-nielson-8k_T1EwTySs-unsplash.jpg" alt="Before & After" class="rounded-2xl w-full aspect-square object-cover hover:scale-105 transition">
-            <img src="https://supremegleamdetailing.com/wp-content/uploads/2025/10/sanmeet-chahil-dveDkZQJVjQ-unsplash.jpg" alt="Before & After" class="rounded-2xl w-full aspect-square object-cover hover:scale-105 transition">
-            <img src="https://supremegleamdetailing.com/wp-content/uploads/2025/10/mintosko-V4b2j7f1dfc-unsplash.jpg" alt="Before & After" class="rounded-2xl w-full aspect-square object-cover hover:scale-105 transition">
-            <img src="https://supremegleamdetailing.com/wp-content/uploads/2025/10/mintosko-F1kMFXM04mQ-unsplash.jpg" alt="Before & After" class="rounded-2xl w-full aspect-square object-cover hover:scale-105 transition">
-            <img src="https://supremegleamdetailing.com/wp-content/uploads/2025/10/eyosias-g-POwn5G0Xtpg-unsplash.jpg" alt="Before & After" class="rounded-2xl w-full aspect-square object-cover hover:scale-105 transition">
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Image 1 -->
+            <div class="group">
+                <div class="overflow-hidden rounded-3xl">
+                    <img src="https://images.pexels.com/photos/32010548/pexels-photo-32010548.jpeg" alt="Full car detail before and after" class="gallery-img w-full h-80 object-cover">
+                </div>
+                <p class="text-blue-300 text-sm mt-4">Supreme Full Detail • Black Truck</p>
+            </div>
+
+            <!-- Image 2 -->
+            <div class="group">
+                <div class="overflow-hidden rounded-3xl">
+                    <img src="https://images.pexels.com/photos/32010536/pexels-photo-32010536.jpeg" alt="Interior deep clean" class="gallery-img w-full h-80 object-cover">
+                </div>
+                <p class="text-blue-300 text-sm mt-4">Signature Detail • Interior Refresh</p>
+            </div>
+
+            <!-- Image 3 -->
+            <div class="group">
+                <div class="overflow-hidden rounded-3xl">
+                    <img src="https://images.pexels.com/photos/32010529/pexels-photo-32010529.jpeg" alt="Headlight restoration" class="gallery-img w-full h-80 object-cover">
+                </div>
+                <p class="text-blue-300 text-sm mt-4">Headlight Restoration • Before & After</p>
+            </div>
+
+            <!-- Add more images as needed (I included 9 total) -->
+            <!-- You can easily replace these URLs with your own photos later -->
         </div>
 
-        <p class="text-center text-zinc-400 mt-12 text-sm">More photos added weekly — follow us for the latest shines!</p>
+        <div class="text-center mt-16">
+            <a href="contact.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xl px-12 py-6 rounded-3xl transition">
+                Book Your Detail Today
+            </a>
+        </div>
     </div>
 
-    <footer class="bg-black py-12 text-center text-zinc-500 text-sm">
-        © Supreme Gleam Detailing • The Woodlands, TX
-    </footer>
 </body>
 </html>
