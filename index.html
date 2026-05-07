@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mobile car detailing that comes to you in The Woodlands, Kingwood & Montgomery County, TX. Premium Express, Signature Standard & Supreme Ultimate packages. Book today!">
+    <meta name="description" content="Mobile car detailing that comes to you in The Woodlands, Kingwood & Montgomery County, TX. Premium Express, Signature Detail & Supreme Full Detail packages. Book today!">
     <title>Supreme Gleam Detailing | Mobile Car Detailing The Woodlands</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -120,18 +120,18 @@
                 includes: ["Luxurious foam bath pre-soak","Gentle hand wash","Full interior vacuum","Interior wipe down","Premium tire & wheel dressing"]
             },
             { 
-                name: "Signature Standard Detail", 
+                name: "Signature Detail", 
                 time: "(2 hrs)", 
                 popular: true, 
                 price: [170, 190, 210],
                 includes: ["Pre-Treat For Bugs / Foam Bath","Wheels & Wheel Well Detail","Gentle Hand Wash & Door Jambs","Detail seams, crevices & emblems","Spot Free rinse & Plush Towel Dry","Exterior & Interior Glass Cleaning","Deep clean doors, dash & plastics"]
             },
             { 
-                name: "Supreme Ultimate Detail", 
+                name: "Supreme Full Detail", 
                 time: "(3+ hrs)", 
                 popular: false, 
                 price: [320, 345, 365],
-                includes: ["Everything in Signature Standard","Deep Clean Leather & Conditioning","Hot Water Extraction & Foam Shampoo","UV & Stain Protectant","Pneumatic Air Dry Fabrics","Premium Ceramic Sealant (4 months)","Clay Treatment & Paint Iron Removal"]
+                includes: ["Everything in Signature Detail","Deep Clean Leather & Conditioning","Hot Water Extraction & Foam Shampoo","UV & Stain Protectant","Pneumatic Air Dry Fabrics","Premium Ceramic Sealant (4 months)","Clay Treatment & Paint Iron Removal"]
             }
         ];
 
@@ -156,7 +156,8 @@
                             <p class="uppercase text-xs tracking-widest text-slate-400 mb-4">INCLUDES:</p>
                             <ul class="space-y-3 text-slate-200">${pkg.includes.map(item => `<li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> ${item}</li>`).join('')}</ul>
                         </div>
-                        <a href="https://calendly.com/david-toptechmobile/express-wash-vacuum" target="_blank" class="mt-auto block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-3xl transition text-lg">BOOK THIS PACKAGE</a>
+                        <a href="${pkg.name === 'Supreme Full Detail' ? 'https://calendly.com/david-toptechmobile/supreme-full-detail' : 'https://calendly.com/david-toptechmobile/express-wash-vacuum'}" 
+                           target="_blank" class="mt-auto block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-3xl transition text-lg">BOOK THIS PACKAGE</a>
                     </div>`;
                 container.innerHTML += cardHTML;
             });
