@@ -3,114 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premium mobile auto detailing services in The Woodlands, Kingwood, and Montgomery County, TX. Express Wash & Vacuum, Signature Exterior Detail, Interior Refresh, Supreme Full Detail & Ceramic Coating. Book now!">
-    <title>Services - Supreme Gleam Detailing</title>
+    <meta name="description" content="Premium mobile car detailing services in The Woodlands, Kingwood, Atascocita, Conroe & Montgomery County, TX. Express Wash & Vacuum, Signature Detail, Supreme Full Detail, Ceramic Coatings, Headlight Restoration & more. Book today!">
+    <title>Services - Supreme Gleam Detailing | The Woodlands, Kingwood, Conroe & Montgomery County</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
         body { font-family: 'Inter', system_ui, sans-serif; }
+        h1, h2 { font-family: 'Playfair Display', serif; }
+        .package-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .package-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgb(59 130 246); }
     </style>
 </head>
-<body class="bg-zinc-900 text-white">
+<body class="bg-[#0a0a0a] text-white">
 
-    <!-- Navbar -->
-    <nav class="bg-black border-b border-green-500 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Navbar (identical to index.html) -->
+    <nav class="bg-black border-b border-blue-500 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="https://supremegleamdetailing.com/wp-content/uploads/2025/10/cropped-1000009246-32x32.jpg" alt="Supreme Gleam" class="h-10">
-                <span class="text-2xl font-bold tracking-tight">Supreme Gleam</span>
+                <img src="/supremegleamlogo.jpg" alt="Supreme Gleam Detailing" class="h-14">
             </div>
-            <div class="hidden md:flex gap-8 text-sm font-medium">
-                <a href="index.html" class="hover:text-green-400">Home</a>
-                <a href="services.html" class="text-green-400">Services</a>
-                <a href="gallery.html" class="hover:text-green-400">Gallery</a>
-                <a href="about.html" class="hover:text-green-400">About</a>
-                <a href="contact.html" class="hover:text-green-400">Contact</a>
+            <div class="hidden md:flex gap-8 text-base font-medium">
+                <a href="index.html" class="hover:text-blue-400">Home</a>
+                <a href="services.html" class="text-blue-400">Services</a>
+                <a href="gallery.html" class="hover:text-blue-400">Gallery</a>
+                <a href="about.html" class="hover:text-blue-400">About</a>
+                <a href="contact.html" class="hover:text-blue-400">Contact</a>
             </div>
-            <a href="contact.html" class="bg-green-500 hover:bg-green-600 text-black font-semibold px-6 py-3 rounded-2xl transition">
-                Get a Quote
+            <a href="tel:9365492997" class="flex items-center gap-2 hover:text-blue-400 transition">
+                <i class="fas fa-phone"></i> 936-549-2997
             </a>
         </div>
     </nav>
 
-    <div class="max-w-7xl mx-auto px-6 py-16">
-        <h1 class="text-5xl font-bold text-center mb-4">Premium Detailing Services</h1>
-        <p class="text-center text-green-400 mb-12">The Woodlands • Kingwood • Montgomery County, TX</p>
+    <div class="max-w-7xl mx-auto px-6 py-20">
+        <h1 class="text-5xl font-bold text-center mb-4">Our Detailing Services</h1>
+        <p class="text-center text-blue-300 text-xl mb-12">The Woodlands • Kingwood • Atascocita • Conroe • Montgomery County</p>
 
         <!-- Main Packages -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <!-- Express Wash and Vacuum -->
-            <div class="bg-zinc-800 p-8 rounded-3xl border border-green-500/30 shadow-xl hover:border-green-400 transition">
-                <h3 class="text-2xl font-semibold mb-2">Express Wash and Vacuum</h3>
-                <p class="text-green-400 text-4xl font-bold mt-2">$100 <span class="text-base font-normal">(45–60 min)</span></p>
-                <p class="mt-6 text-zinc-400">Experience a perfect quick refresh with our Express Wash and Vacuum. Luxurious foam bath pre-soak, gentle hand wash, full interior vacuum of seats, floors, trunk, cracks and crevices, plus premium tire & wheel dressing for that showroom shine.</p>
-                <a href="https://calendly.com/david-toptechmobile/express-wash-vacuum" target="_blank"
-                   class="mt-8 block w-full text-center bg-green-500 hover:bg-green-600 text-black font-semibold py-4 px-8 rounded-2xl transition">Book Express Wash & Vacuum</a>
+        <div class="grid md:grid-cols-3 gap-8 mb-24">
+            <!-- Express -->
+            <div class="package-card bg-[#111111] border border-blue-500/30 rounded-3xl p-8 flex flex-col h-full">
+                <h3 class="text-3xl font-semibold mb-1">Express Wash & Vacuum</h3>
+                <p class="text-blue-300 mb-6">(45-60 min)</p>
+                <div class="text-blue-400 text-6xl font-bold mb-8">$100 – $120</div>
+                <ul class="space-y-3 text-slate-200 mb-8 flex-1">
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Luxurious foam bath pre-soak</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Gentle hand wash</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Full interior vacuum</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Interior wipe down</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Premium tire & wheel dressing</li>
+                </ul>
+                <p class="text-slate-400 text-sm mb-8">Pet hair removal is additional.</p>
+                <a href="https://calendly.com/david-toptechmobile/express-wash-vacuum" target="_blank" class="mt-auto block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-3xl transition text-lg">BOOK THIS PACKAGE</a>
             </div>
 
-            <!-- Signature Exterior Detail -->
-            <div class="bg-zinc-800 p-8 rounded-3xl border border-green-500/30 shadow-xl hover:border-green-400 transition">
-                <h3 class="text-2xl font-semibold mb-2">Signature Exterior Detail</h3>
-                <p class="text-green-400 text-4xl font-bold mt-2">$75 <span class="text-base font-normal">(30–45 min)</span></p>
-                <p class="mt-6 text-zinc-400">Our Signature Exterior Detail brings your vehicle to a brilliant shine through a meticulous multi-step process: bug removal, luxurious foam bath pre-soak, deep wheel cleaning, gentle hand wash, precise seam/crest/emblem detailing, spot-free rinse, door jamb cleaning, plush towel dry, crystal-clear exterior glass, premium tire dressing, and durable ceramic sealant for 4–5 weeks of protection.</p>
-                <a href="https://calendly.com/david-toptechmobile/signature-exterior-detail" target="_blank"
-                   class="mt-8 block w-full text-center bg-green-500 hover:bg-green-600 text-black font-semibold py-4 px-8 rounded-2xl transition">Book Signature Exterior Detail</a>
-            </div>
-
-            <!-- Interior Essential Refresh -->
-            <div class="bg-zinc-800 p-8 rounded-3xl border border-green-500/30 shadow-xl hover:border-green-400 transition">
-                <h3 class="text-2xl font-semibold mb-2">Interior Essential Refresh</h3>
-                <p class="text-green-400 text-4xl font-bold mt-2">$115 – $135 <span class="text-base font-normal">(1–2 hrs)</span></p>
-                <p class="mt-6 text-zinc-400">Restore your cabin to pristine condition. Deep clean doors, dash & plastics, blow out every crack, crevice & under-seat area, apply premium protectant, gently deep clean and condition leather, full vacuum of all interior areas (including trunk), and crystal-clear interior glass cleaning.</p>
-                <a href="https://calendly.com/david-toptechmobile/interior-essential-refresh" target="_blank"
-                   class="mt-8 block w-full text-center bg-green-500 hover:bg-green-600 text-black font-semibold py-4 px-8 rounded-2xl transition">Book Interior Essential Refresh</a>
+            <!-- Signature Detail -->
+            <div class="package-card bg-[#111111] border border-blue-500/30 rounded-3xl p-8 flex flex-col h-full relative">
+                <div class="absolute -top-3 left-8 bg-blue-600 text-white text-xs font-bold px-6 py-1 rounded-3xl">MOST POPULAR</div>
+                <h3 class="text-3xl font-semibold mb-1">Signature Detail</h3>
+                <p class="text-blue-300 mb-6">(2 hrs)</p>
+                <div class="text-blue-400 text-6xl font-bold mb-8">$170 – $210</div>
+                <ul class="space-y-3 text-slate-200 mb-8 flex-1">
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Pre-Treat For Bugs / Foam Bath</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Wheels & Wheel Well Detail</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Gentle Hand Wash & Door Jambs</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Detail seams, crevices & emblems</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Spot Free rinse & Plush Towel Dry</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Exterior & Interior Glass Cleaning</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Deep clean doors, dash & plastics</li>
+                </ul>
+                <p class="text-slate-400 text-sm mb-8">Pet hair removal is additional.</p>
+                <a href="https://calendly.com/david-toptechmobile/signature-detail" target="_blank" class="mt-auto block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-3xl transition text-lg">BOOK THIS PACKAGE</a>
             </div>
 
             <!-- Supreme Full Detail -->
-            <div class="bg-zinc-800 p-8 rounded-3xl border border-green-500/30 shadow-xl hover:border-green-400 transition lg:col-span-2">
-                <h3 class="text-2xl font-semibold mb-2">Supreme Full Detail</h3>
-                <p class="text-green-400 text-4xl font-bold mt-2">$265 – $325 <span class="text-base font-normal">(2–3 hrs)</span></p>
-                <p class="mt-6 text-zinc-400">The ultimate all-in-one experience. Combines our Signature Exterior Detail with the complete Interior Essential Refresh for a full showroom transformation inside and out — every inch meticulously cleaned, protected, and polished.</p>
-                <a href="https://calendly.com/david-toptechmobile/supreme-full-detail" target="_blank"
-                   class="mt-8 block w-full text-center bg-green-500 hover:bg-green-600 text-black font-semibold py-4 px-8 rounded-2xl transition">Book Supreme Full Detail</a>
-            </div>
-
-            <!-- Ultimate Ceramic Shield -->
-            <div class="bg-zinc-800 p-8 rounded-3xl border border-green-500/30 shadow-xl hover:border-green-400 transition lg:col-span-2">
-                <h3 class="text-2xl font-semibold mb-2">Ultimate Ceramic Shield</h3>
-                <p class="text-green-400 text-4xl font-bold mt-2">Basic $499 • Premium $799 <span class="text-base font-normal">(3–5 hrs)</span></p>
-                <p class="mt-6 text-zinc-400">Full Supreme Detail plus professional-grade ceramic coating for 2–3 years of hydrophobic protection and paint correction. Includes everything from the Supreme Full Detail with added long-term shine and protection. Garage cure recommended.</p>
-                <a href="https://calendly.com/david-toptechmobile/supreme-full-detail" target="_blank"
-                   class="mt-8 block w-full text-center bg-green-500 hover:bg-green-600 text-black font-semibold py-4 px-8 rounded-2xl transition">Book Ceramic Shield Consultation</a>
-            </div>
-        </div>
-
-        <!-- Add-Ons -->
-        <div class="mt-20">
-            <h3 class="text-3xl font-semibold text-center mb-8">Popular Add-Ons</h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="bg-zinc-800 p-6 rounded-3xl flex items-center gap-4"><i class="fas fa-spray-can text-green-400 text-2xl"></i><span class="flex-1">Clay Bar Treatment + Paint Sealant</span><span class="font-semibold">$65</span></div>
-                <div class="bg-zinc-800 p-6 rounded-3xl flex items-center gap-4"><i class="fas fa-car-side text-green-400 text-2xl"></i><span class="flex-1">Black Trim & Plastic Restoration</span><span class="font-semibold">$45</span></div>
-                <div class="bg-zinc-800 p-6 rounded-3xl flex items-center gap-4"><i class="fas fa-wind text-green-400 text-2xl"></i><span class="flex-1">Ozone Odor Elimination</span><span class="font-semibold">$80</span></div>
-                <div class="bg-zinc-800 p-6 rounded-3xl flex items-center gap-4"><i class="fas fa-couch text-green-400 text-2xl"></i><span class="flex-1">Leather Conditioning & Protection (includes vinyl)</span><span class="font-semibold">starts at $20</span></div>
-                <div class="bg-zinc-800 p-6 rounded-3xl flex items-center gap-4"><i class="fas fa-car text-green-400 text-2xl"></i><span class="flex-1">Engine Bay Detail</span><span class="font-semibold">$40</span></div>
-                <div class="bg-zinc-800 p-6 rounded-3xl flex items-center gap-4"><i class="fas fa-paw text-green-400 text-2xl"></i><span class="flex-1">Pet Hair & Odor Removal</span><span class="font-semibold">starts at $30</span></div>
-                <div class="bg-zinc-800 p-6 rounded-3xl flex items-center gap-4"><i class="fas fa-lightbulb text-green-400 text-2xl"></i><span class="flex-1">Headlight Restoration</span><span class="font-semibold">$120</span></div>
+            <div class="package-card bg-[#111111] border border-blue-500/30 rounded-3xl p-8 flex flex-col h-full">
+                <h3 class="text-3xl font-semibold mb-1">Supreme Full Detail</h3>
+                <p class="text-blue-300 mb-6">(3+ hrs)</p>
+                <div class="text-blue-400 text-6xl font-bold mb-8">$320 – $365</div>
+                <ul class="space-y-3 text-slate-200 mb-8 flex-1">
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Everything in Signature Detail</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Deep Clean Leather & Conditioning</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Hot Water Extraction & Foam Shampoo</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Clay Treatment & Paint Iron Removal</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> UV & Stain Protectant</li>
+                    <li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> Premium Ceramic Sealant (4 months)</li>
+                </ul>
+                <p class="text-slate-400 text-sm mb-8">Pet hair removal is additional.</p>
+                <a href="https://calendly.com/david-toptechmobile/supreme-full-detail" target="_blank" class="mt-auto block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-3xl transition text-lg">BOOK THIS PACKAGE</a>
             </div>
         </div>
 
-        <div class="text-center mt-16">
-            <p class="text-xl mb-6">15% off your first service for Montgomery County residents!</p>
-            <a href="contact.html" class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-black font-semibold text-xl px-10 py-5 rounded-2xl transition">
-                Need something custom? Get in touch
-            </a>
+        <!-- Add-ons Section -->
+        <h2 class="text-4xl font-bold text-center mb-12">Popular Add-Ons</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-[#111111] p-8 rounded-3xl border border-blue-500/30">
+                <div class="text-blue-400 text-3xl font-bold mb-2">$75</div>
+                <h3 class="text-2xl font-semibold mb-4">Spot Scratch Removal</h3>
+                <p class="text-slate-300">Perfect for removing minor scratches from a specific panel. Uses professional paint refinishing tools. Results may vary depending on condition of defect. (Exterior service required)</p>
+            </div>
+
+            <div class="bg-[#111111] p-8 rounded-3xl border border-blue-500/30">
+                <div class="text-blue-400 text-3xl font-bold mb-2">$25</div>
+                <h3 class="text-2xl font-semibold mb-4">Child Car Seat Cleaning</h3>
+                <p class="text-slate-300">Compressed air blow out & detailed vacuum • Hot Water Extraction & Foam Shampoo w/baby safe cleaners • PH Balanced Shampoo Process • Sanitize & disinfect fabrics and plastics • Pneumatic Air Dry</p>
+            </div>
+
+            <div class="bg-[#111111] p-8 rounded-3xl border border-blue-500/30">
+                <div class="text-blue-400 text-3xl font-bold mb-2">$120</div>
+                <h3 class="text-2xl font-semibold mb-4">Headlight Restoration</h3>
+                <p class="text-slate-300">4-step professional restoration: Sand, Compound, Polish, and Seal with 3-year Ceramic Coating. Guaranteed clarity and longevity.</p>
+            </div>
+
+            <div class="bg-[#111111] p-8 rounded-3xl border border-blue-500/30">
+                <div class="text-blue-400 text-3xl font-bold mb-2">$49.99</div>
+                <h3 class="text-2xl font-semibold mb-4">Engine Bay Detail</h3>
+                <p class="text-slate-300">Degrease all surfaces • Agitate all surfaces in reach • Pneumatic air dry • Water based dressing (non-greasy)</p>
+            </div>
+
+            <div class="bg-[#111111] p-8 rounded-3xl border border-blue-500/30">
+                <div class="text-blue-400 text-3xl font-bold mb-2">$49</div>
+                <h3 class="text-2xl font-semibold mb-4">Faded Trim Restore & Ceramic Coating</h3>
+                <p class="text-slate-300">Renew and restore faded trim without replacing it. Non-glossy restorative with UV protection and long-lasting ceramic coating.</p>
+            </div>
+
+            <div class="bg-[#111111] p-8 rounded-3xl border border-blue-500/30">
+                <div class="text-blue-400 text-3xl font-bold mb-2">$40+</div>
+                <h3 class="text-2xl font-semibold mb-4">Pet Hair Removal</h3>
+                <p class="text-slate-300">Specialized removal of embedded pet hair from seats, carpets, and upholstery. Price varies based on condition.</p>
+            </div>
         </div>
     </div>
 
-    <footer class="bg-black py-12 text-center text-zinc-500 text-sm">
-        © Supreme Gleam Detailing • The Woodlands, TX • All Rights Reserved
-    </footer>
+    <script>
+        // Keep page consistent with index
+    </script>
 </body>
 </html>
