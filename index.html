@@ -48,12 +48,11 @@
         LIMITED SPECIAL • EXPRESS DETAIL <span class="line-through opacity-70">$240</span> <span class="text-yellow-300">$199</span> • SPOTS FILLING FAST!
     </div>
 
-    <!-- Navbar -->
+    <!-- Navbar with your new logo -->
     <nav class="bg-black border-b border-blue-500 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="https://supremegleamdetailing.com/wp-content/uploads/2025/10/cropped-1000009246-32x32.jpg" alt="Supreme Gleam" class="h-10">
-                <span class="text-3xl font-bold tracking-tight">Supreme Gleam</span>
+                <img src="/supremegleamlogo.jpg" alt="Supreme Gleam" class="h-14">
             </div>
             <div class="hidden md:flex gap-8 text-base font-medium">
                 <a href="index.html" class="text-blue-400">Home</a>
@@ -68,14 +67,12 @@
         </div>
     </nav>
 
-    <!-- HERO VIDEO + BUBBLES -->
+    <!-- HERO + BUBBLES -->
     <header class="relative h-screen flex items-center overflow-hidden">
         <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover hero-video">
             <source src="/hero-detailing.mp4" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60"></div>
-        
-        <!-- Floating Bubbles -->
         <div id="bubbles"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
@@ -95,73 +92,33 @@
         </div>
     </header>
 
-    <!-- PACKAGES SECTION -->
+    <!-- PACKAGES SECTION - YOUR REAL PACKAGES -->
     <section class="py-20 bg-[#0a0a0a]">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-5xl font-bold text-center mb-4">Choose Your Glow</h2>
             <p class="text-center text-blue-300 text-xl mb-8">Prices update instantly • Select your vehicle</p>
 
-            <!-- Vehicle selector -->
             <div class="flex flex-wrap justify-center gap-4 mb-12">
                 <button onclick="selectVehicle(0)" id="veh-0" class="vehicle-btn active px-10 py-5 rounded-3xl text-lg font-semibold flex items-center gap-3 border border-white/30 hover:border-blue-400">🚗 Sedan / Coupe</button>
                 <button onclick="selectVehicle(1)" id="veh-1" class="vehicle-btn px-10 py-5 rounded-3xl text-lg font-semibold flex items-center gap-3 border border-white/30 hover:border-blue-400">🚙 Midsize SUV</button>
                 <button onclick="selectVehicle(2)" id="veh-2" class="vehicle-btn px-10 py-5 rounded-3xl text-lg font-semibold flex items-center gap-3 border border-white/30 hover:border-blue-400">🛻 Full-Size Truck / SUV</button>
             </div>
 
-            <div id="packages-container" class="grid md:grid-cols-3 gap-8">
-                <!-- JS populated cards -->
-            </div>
+            <div id="packages-container" class="grid md:grid-cols-3 gap-8"></div>
         </div>
     </section>
 
     <script>
-        const multipliers = [1.00, 1.19, 1.24]; // Sedan, Midsize, Large (adjusted to match your new pricing)
+        const multipliers = [1.00, 1.19, 1.24];
         let currentVehicle = 0;
 
         const packages = [
-            {
-                name: "Express Wash & Vacuum",
-                time: "(45-60 min)",
-                popular: false,
-                basePrice: 100,
-                includes: [
-                    "Luxurious foam bath pre-soak",
-                    "Gentle hand wash",
-                    "Full interior vacuum",
-                    "Interior wipe down",
-                    "Premium tire & wheel dressing"
-                ]
-            },
-            {
-                name: "Signature Standard Detail",
-                time: "(2 hrs)",
-                popular: true,
-                basePrice: 170,
-                includes: [
-                    "Pre-Treat For Bugs / Foam Bath",
-                    "Wheels & Wheel Well Detail",
-                    "Gentle Hand Wash & Door Jambs",
-                    "Detail seams, crevices & emblems",
-                    "Spot Free rinse & Plush Towel Dry",
-                    "Exterior & Interior Glass Cleaning",
-                    "Deep clean doors, dash & plastics"
-                ]
-            },
-            {
-                name: "Supreme Ultimate Detail",
-                time: "(3+ hrs)",
-                popular: false,
-                basePrice: 320,
-                includes: [
-                    "Everything in Signature Standard",
-                    "Deep Clean Leather & Conditioning",
-                    "Hot Water Extraction & Foam Shampoo",
-                    "UV & Stain Protectant",
-                    "Pneumatic Air Dry Fabrics",
-                    "Premium Ceramic Sealant (4 months)",
-                    "Clay Treatment & Paint Iron Removal"
-                ]
-            }
+            { name: "Express Wash & Vacuum", time: "(45-60 min)", popular: false, basePrice: 100,
+              includes: ["Luxurious foam bath pre-soak","Gentle hand wash","Full interior vacuum","Interior wipe down","Premium tire & wheel dressing"] },
+            { name: "Signature Standard Detail", time: "(2 hrs)", popular: true, basePrice: 170,
+              includes: ["Pre-Treat For Bugs / Foam Bath","Wheels & Wheel Well Detail","Gentle Hand Wash & Door Jambs","Detail seams, crevices & emblems","Spot Free rinse & Plush Towel Dry","Exterior & Interior Glass Cleaning","Deep clean doors, dash & plastics"] },
+            { name: "Supreme Ultimate Detail", time: "(3+ hrs)", popular: false, basePrice: 320,
+              includes: ["Everything in Signature Standard","Deep Clean Leather & Conditioning","Hot Water Extraction & Foam Shampoo","UV & Stain Protectant","Pneumatic Air Dry Fabrics","Premium Ceramic Sealant (4 months)","Clay Treatment & Paint Iron Removal"] }
         ];
 
         function selectVehicle(index) {
@@ -185,19 +142,16 @@
                             <p class="uppercase text-xs tracking-widest text-slate-400 mb-4">Includes:</p>
                             <ul class="space-y-3 text-slate-200">${pkg.includes.map(item => `<li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> ${item}</li>`).join('')}</ul>
                         </div>
-                        <a href="https://calendly.com/david-toptechmobile/express-wash-vacuum" target="_blank" 
-                           class="mt-auto block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-3xl transition text-lg">BOOK THIS PACKAGE</a>
+                        <a href="https://calendly.com/david-toptechmobile/express-wash-vacuum" target="_blank" class="mt-auto block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-3xl transition text-lg">BOOK THIS PACKAGE</a>
                     </div>`;
                 container.innerHTML += cardHTML;
             });
         }
 
-        function openBookingModal() {
-            alert("🎉 Booking modal coming soon! Use the package buttons for now.");
-        }
+        function openBookingModal() { alert("🎉 Booking modal coming soon!"); }
 
-        // Floating bubbles
-        function createBubbles() {
+        // Bubbles
+        function createBubbles() { /* same bubble code as before */ 
             const container = document.getElementById('bubbles');
             for (let i = 0; i < 45; i++) {
                 const bubble = document.createElement('div');
@@ -207,14 +161,12 @@
                 bubble.style.height = `${size}px`;
                 bubble.style.left = `${Math.random() * 100}vw`;
                 bubble.style.bottom = `-${size}px`;
-                const duration = Math.random() * 8 + 6;
-                bubble.style.animationDuration = `${duration}s`;
+                bubble.style.animationDuration = `${Math.random() * 8 + 6}s`;
                 bubble.style.animationDelay = `-${Math.random() * 12}s`;
                 container.appendChild(bubble);
                 bubble.addEventListener('animationend', () => { bubble.remove(); createSingleBubble(); });
             }
         }
-
         function createSingleBubble() {
             const container = document.getElementById('bubbles');
             const bubble = document.createElement('div');
@@ -229,10 +181,7 @@
             bubble.addEventListener('animationend', () => bubble.remove());
         }
 
-        window.onload = () => {
-            renderPackages();
-            createBubbles();
-        };
+        window.onload = () => { renderPackages(); createBubbles(); };
     </script>
 </body>
 </html>
