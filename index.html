@@ -48,7 +48,7 @@
         LIMITED SPECIAL • EXPRESS DETAIL <span class="line-through opacity-70">$240</span> <span class="text-yellow-300">$199</span> • SPOTS FILLING FAST!
     </div>
 
-    <!-- Navbar with your official logo -->
+    <!-- Navbar -->
     <nav class="bg-black border-b border-blue-500 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -131,7 +131,7 @@
                 time: "(3+ hrs)", 
                 popular: false, 
                 price: [320, 345, 365],
-                includes: ["Everything in Signature Detail","Deep Clean Leather & Conditioning","Hot Water Extraction & Foam Shampoo","UV & Stain Protectant","Pneumatic Air Dry Fabrics","Premium Ceramic Sealant (4 months)","Clay Treatment & Paint Iron Removal"]
+                includes: ["Everything in Signature Detail","Deep Clean Leather & Conditioning","Hot Water Extraction & Foam Shampoo","Clay Treatment & Paint Iron Removal","UV & Stain Protectant","Pneumatic Air Dry Fabrics","Premium Ceramic Sealant (4 months)"]
             }
         ];
 
@@ -155,8 +155,9 @@
                         <div class="mb-8">
                             <p class="uppercase text-xs tracking-widest text-slate-400 mb-4">INCLUDES:</p>
                             <ul class="space-y-3 text-slate-200">${pkg.includes.map(item => `<li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> ${item}</li>`).join('')}</ul>
+                            <p class="text-slate-400 text-sm mt-6">Pet hair removal is additional.</p>
                         </div>
-                        <a href="${pkg.name === 'Supreme Full Detail' ? 'https://calendly.com/david-toptechmobile/supreme-full-detail' : 'https://calendly.com/david-toptechmobile/express-wash-vacuum'}" 
+                        <a href="${pkg.name === 'Supreme Full Detail' ? 'https://calendly.com/david-toptechmobile/supreme-full-detail' : pkg.name === 'Signature Detail' ? 'https://calendly.com/david-toptechmobile/signature-detail' : 'https://calendly.com/david-toptechmobile/express-wash-vacuum'}" 
                            target="_blank" class="mt-auto block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-3xl transition text-lg">BOOK THIS PACKAGE</a>
                     </div>`;
                 container.innerHTML += cardHTML;
