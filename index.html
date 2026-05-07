@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mobile car detailing that comes to you in The Woodlands, Kingwood & Montgomery County, TX. Premium Express, Executive & Elite packages. Book today!">
+    <meta name="description" content="Mobile car detailing that comes to you in The Woodlands, Kingwood & Montgomery County, TX. Premium Express, Signature Standard & Supreme Ultimate packages. Book today!">
     <title>Supreme Gleam Detailing | Mobile Car Detailing The Woodlands</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -101,6 +101,7 @@
             <h2 class="text-5xl font-bold text-center mb-4">Choose Your Glow</h2>
             <p class="text-center text-blue-300 text-xl mb-8">Prices update instantly • Select your vehicle</p>
 
+            <!-- Vehicle selector -->
             <div class="flex flex-wrap justify-center gap-4 mb-12">
                 <button onclick="selectVehicle(0)" id="veh-0" class="vehicle-btn active px-10 py-5 rounded-3xl text-lg font-semibold flex items-center gap-3 border border-white/30 hover:border-blue-400">🚗 Sedan / Coupe</button>
                 <button onclick="selectVehicle(1)" id="veh-1" class="vehicle-btn px-10 py-5 rounded-3xl text-lg font-semibold flex items-center gap-3 border border-white/30 hover:border-blue-400">🚙 Midsize SUV</button>
@@ -114,13 +115,53 @@
     </section>
 
     <script>
-        const multipliers = [1.00, 1.32, 1.65];
+        const multipliers = [1.00, 1.19, 1.24]; // Sedan, Midsize, Large (adjusted to match your new pricing)
         let currentVehicle = 0;
 
         const packages = [
-            { name: "Full Express Detail", time: "(2-3 Hour Turn Around)", popular: false, price: 199, includes: ["Hand Wash & Dry","Window Cleaning","Full Interior Vacuum","Interior Wipe Down","Steam Cleaning (Dash & Plastics)","Seat Refresh & Air Freshener"] },
-            { name: "Full Executive Detail", time: "(3-6 Hour Turn Around)", popular: true, price: 265, includes: ["Everything in Express Detail","Pet Hair Removal","Hand Wash & Premium Wax","Tire Shine","Light Stain Removal","Seat Shampooing"] },
-            { name: "Elite Detail", time: "(5-8 Hour Turn Around)", popular: false, price: 399, includes: ["Everything in Executive Detail","Hand Wash & Wax","Deep Stain Extraction","Interior Conditioning & Protection","Maximum gloss & restoration"] }
+            {
+                name: "Express Wash & Vacuum",
+                time: "(45-60 min)",
+                popular: false,
+                basePrice: 100,
+                includes: [
+                    "Luxurious foam bath pre-soak",
+                    "Gentle hand wash",
+                    "Full interior vacuum",
+                    "Interior wipe down",
+                    "Premium tire & wheel dressing"
+                ]
+            },
+            {
+                name: "Signature Standard Detail",
+                time: "(2 hrs)",
+                popular: true,
+                basePrice: 170,
+                includes: [
+                    "Pre-Treat For Bugs / Foam Bath",
+                    "Wheels & Wheel Well Detail",
+                    "Gentle Hand Wash & Door Jambs",
+                    "Detail seams, crevices & emblems",
+                    "Spot Free rinse & Plush Towel Dry",
+                    "Exterior & Interior Glass Cleaning",
+                    "Deep clean doors, dash & plastics"
+                ]
+            },
+            {
+                name: "Supreme Ultimate Detail",
+                time: "(3+ hrs)",
+                popular: false,
+                basePrice: 320,
+                includes: [
+                    "Everything in Signature Standard",
+                    "Deep Clean Leather & Conditioning",
+                    "Hot Water Extraction & Foam Shampoo",
+                    "UV & Stain Protectant",
+                    "Pneumatic Air Dry Fabrics",
+                    "Premium Ceramic Sealant (4 months)",
+                    "Clay Treatment & Paint Iron Removal"
+                ]
+            }
         ];
 
         function selectVehicle(index) {
@@ -133,7 +174,7 @@
             const container = document.getElementById('packages-container');
             container.innerHTML = '';
             packages.forEach(pkg => {
-                const price = Math.round(pkg.price * multipliers[currentVehicle]);
+                const price = Math.round(pkg.basePrice * multipliers[currentVehicle]);
                 const cardHTML = `
                     <div class="package-card bg-[#111111] border border-blue-500/30 rounded-3xl p-8 flex flex-col h-full relative">
                         ${pkg.popular ? `<div class="absolute -top-3 left-8 bg-blue-600 text-white text-xs font-bold px-6 py-1 rounded-3xl">MOST POPULAR</div>` : ''}
@@ -144,14 +185,15 @@
                             <p class="uppercase text-xs tracking-widest text-slate-400 mb-4">Includes:</p>
                             <ul class="space-y-3 text-slate-200">${pkg.includes.map(item => `<li class="flex items-start gap-2"><span class="text-blue-400 mt-1">•</span> ${item}</li>`).join('')}</ul>
                         </div>
-                        <a href="https://calendly.com/david-toptechmobile/express-wash-vacuum" target="_blank" class="mt-auto block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-3xl transition text-lg">BOOK THIS PACKAGE</a>
+                        <a href="https://calendly.com/david-toptechmobile/express-wash-vacuum" target="_blank" 
+                           class="mt-auto block text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-5 px-8 rounded-3xl transition text-lg">BOOK THIS PACKAGE</a>
                     </div>`;
                 container.innerHTML += cardHTML;
             });
         }
 
         function openBookingModal() {
-            alert("🎉 Booking modal coming soon!");
+            alert("🎉 Booking modal coming soon! Use the package buttons for now.");
         }
 
         // Floating bubbles
@@ -169,10 +211,7 @@
                 bubble.style.animationDuration = `${duration}s`;
                 bubble.style.animationDelay = `-${Math.random() * 12}s`;
                 container.appendChild(bubble);
-                bubble.addEventListener('animationend', () => {
-                    bubble.remove();
-                    createSingleBubble();
-                });
+                bubble.addEventListener('animationend', () => { bubble.remove(); createSingleBubble(); });
             }
         }
 
