@@ -17,23 +17,40 @@
 </head>
 <body class="bg-[#0a0a0a] text-white">
 
-    <!-- Navbar - NOW INCLUDES BLOG -->
+    <!-- UPDATED NAVBAR - Mobile + Desktop -->
     <nav class="bg-black border-b border-blue-500 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <img src="/supremegleamlogo.jpg" alt="Supreme Gleam Detailing" class="h-14">
             </div>
+            <!-- Desktop Menu -->
             <div class="hidden md:flex gap-8 text-base font-medium">
                 <a href="index.html" class="hover:text-blue-400">Home</a>
                 <a href="services.html" class="hover:text-blue-400">Services</a>
                 <a href="gallery.html" class="hover:text-blue-400">Gallery</a>
+                <a href="blog.html" class="hover:text-blue-400">Blog</a>
                 <a href="about.html" class="hover:text-blue-400">About</a>
-                <a href="blog.html" class="text-blue-400">Blog</a>
                 <a href="contact.html" class="hover:text-blue-400">Contact</a>
             </div>
-            <a href="tel:9365492997" class="flex items-center gap-2 hover:text-blue-400 transition">
+            <!-- Phone -->
+            <a href="tel:9365492997" class="flex items-center gap-2 hover:text-blue-400 transition text-sm font-medium">
                 <i class="fas fa-phone"></i> 936-549-2997
             </a>
+            <!-- Mobile Hamburger -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-3xl">
+                <i class="fas fa-bars" id="hamburger-icon"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black border-t border-blue-500 px-6 py-4">
+            <div class="flex flex-col gap-4 text-base font-medium">
+                <a href="index.html" class="hover:text-blue-400 py-2">Home</a>
+                <a href="services.html" class="hover:text-blue-400 py-2">Services</a>
+                <a href="gallery.html" class="hover:text-blue-400 py-2">Gallery</a>
+                <a href="blog.html" class="hover:text-blue-400 py-2">Blog</a>
+                <a href="about.html" class="hover:text-blue-400 py-2">About</a>
+                <a href="contact.html" class="hover:text-blue-400 py-2">Contact</a>
+            </div>
         </div>
     </nav>
 
@@ -43,38 +60,67 @@
             <p class="text-blue-300 text-xl max-w-2xl mx-auto">Car care tips, maintenance advice, and local insights from Supreme Gleam Detailing serving The Woodlands, Kingwood, Atascocita, Conroe & Montgomery County.</p>
         </div>
 
+        <!-- Teaser Cards -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="blog-card bg-[#111111] border border-blue-500/30 rounded-3xl overflow-hidden">
+            <div class="blog-card bg-[#111111] border border-blue-500/30 rounded-3xl overflow-hidden cursor-pointer" onclick="document.getElementById('post1-full').scrollIntoView({ behavior: 'smooth' })">
                 <div class="h-48 bg-zinc-800 flex items-center justify-center text-6xl">🧼</div>
                 <div class="p-8">
                     <p class="text-blue-400 text-sm font-medium mb-3">Maintenance Tips • The Woodlands</p>
                     <h3 class="text-2xl font-semibold mb-4">Why Clay Bar Treatment Matters in Texas Heat</h3>
                     <p class="text-slate-300 line-clamp-4">How clay barring removes embedded contaminants and prepares your paint for ceramic coating — especially important for vehicles in The Woodlands and Conroe.</p>
-                    <a href="#" class="inline-block mt-8 text-blue-400 hover:text-blue-300 font-medium">Read more →</a>
+                    <a class="inline-block mt-8 text-blue-400 hover:text-blue-300 font-medium">Read more →</a>
                 </div>
             </div>
 
-            <div class="blog-card bg-[#111111] border border-blue-500/30 rounded-3xl overflow-hidden">
+            <div class="blog-card bg-[#111111] border border-blue-500/30 rounded-3xl overflow-hidden cursor-pointer" onclick="document.getElementById('post2-full').scrollIntoView({ behavior: 'smooth' })">
                 <div class="h-48 bg-zinc-800 flex items-center justify-center text-6xl">🚙</div>
                 <div class="p-8">
                     <p class="text-blue-400 text-sm font-medium mb-3">Local Advice</p>
                     <h3 class="text-2xl font-semibold mb-4">Mobile Detailing vs. Drive-Thru Car Wash: What’s the Difference?</h3>
                     <p class="text-slate-300 line-clamp-4">A side-by-side comparison that shows why professional mobile detailing in Kingwood and Montgomery County gives you better results and longer protection.</p>
-                    <a href="#" class="inline-block mt-8 text-blue-400 hover:text-blue-300 font-medium">Read more →</a>
+                    <a class="inline-block mt-8 text-blue-400 hover:text-blue-300 font-medium">Read more →</a>
                 </div>
             </div>
 
-            <div class="blog-card bg-[#111111] border border-blue-500/30 rounded-3xl overflow-hidden">
+            <div class="blog-card bg-[#111111] border border-blue-500/30 rounded-3xl overflow-hidden cursor-pointer" onclick="document.getElementById('post3-full').scrollIntoView({ behavior: 'smooth' })">
                 <div class="h-48 bg-zinc-800 flex items-center justify-center text-6xl">✨</div>
                 <div class="p-8">
                     <p class="text-blue-400 text-sm font-medium mb-3">Expert Tips</p>
                     <h3 class="text-2xl font-semibold mb-4">How Often Should You Get Your Car Detailed in Texas?</h3>
                     <p class="text-slate-300 line-clamp-4">Seasonal guidance for The Woodlands and surrounding areas — when to book a full detail to protect your paint from Texas sun, pollen, and road grime.</p>
-                    <a href="#" class="inline-block mt-8 text-blue-400 hover:text-blue-300 font-medium">Read more →</a>
+                    <a class="inline-block mt-8 text-blue-400 hover:text-blue-300 font-medium">Read more →</a>
                 </div>
             </div>
         </div>
+
+        <!-- Full Posts -->
+        <div id="post1-full" class="mt-24 max-w-3xl mx-auto border-t border-blue-500/30 pt-16">
+            <h2 class="text-4xl font-bold mb-6">Why Clay Bar Treatment Matters in Texas Heat</h2>
+            <p class="text-slate-300">Texas heat, pollen, and road grime embed contaminants into your paint. Clay bar treatment safely removes these particles, creating a smooth surface for ceramic coating and preventing swirl marks. Highly recommended every 6–12 months in The Woodlands and Conroe areas.</p>
+        </div>
+
+        <div id="post2-full" class="mt-24 max-w-3xl mx-auto border-t border-blue-500/30 pt-16">
+            <h2 class="text-4xl font-bold mb-6">Mobile Detailing vs. Drive-Thru Car Wash: What’s the Difference?</h2>
+            <p class="text-slate-300">Drive-thru washes are fast but often cause swirl marks and miss the details. Mobile detailing brings professional tools and products to your driveway, delivering a much deeper clean and longer-lasting protection — perfect for busy families in Kingwood and Montgomery County.</p>
+        </div>
+
+        <div id="post3-full" class="mt-24 max-w-3xl mx-auto border-t border-blue-500/30 pt-16">
+            <h2 class="text-4xl font-bold mb-6">How Often Should You Get Your Car Detailed in Texas?</h2>
+            <p class="text-slate-300">In our hot, humid climate, we recommend a full detail every 3–4 months and a quick wash every 2–4 weeks. This schedule protects your paint, keeps interiors fresh, and maintains that showroom shine year-round.</p>
+        </div>
     </div>
 
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('hamburger-icon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.replace('fa-times', 'fa-bars');
+            } else {
+                icon.classList.replace('fa-bars', 'fa-times');
+            }
+        }
+    </script>
 </body>
 </html>
