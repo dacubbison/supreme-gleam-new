@@ -16,7 +16,8 @@
     </style>
 </head>
 <body class="bg-[#0a0a0a] text-white">
-    <!-- Navbar (same as index) -->
+
+    <!-- Navbar -->
     <nav class="bg-black border-b border-blue-500 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -39,6 +40,7 @@
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-black border-t border-blue-500 px-6 py-4">
         <div class="flex flex-col gap-4 text-base font-medium">
             <a href="index.html" class="hover:text-blue-400 py-2">Home</a>
@@ -56,7 +58,7 @@
 
         <!-- Main Packages -->
         <div class="grid md:grid-cols-3 gap-8 mb-24">
-            <!-- Express -->
+            <!-- Express Wash & Vacuum -->
             <div class="package-card bg-[#111111] border border-blue-500/30 rounded-3xl p-8 flex flex-col h-full">
                 <h3 class="text-3xl font-semibold mb-1">Express Wash & Vacuum</h3>
                 <p class="text-blue-300 mb-6">(45-60 min)</p>
@@ -144,20 +146,48 @@
             </div>
         </div>
 
-        <!-- Add-Ons (no booking needed) -->
+        <!-- Add-Ons (FULL - 6 cards) -->
         <h2 class="text-4xl font-bold text-center mb-12">Popular Add-Ons</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Add-on cards stay the same (no booking buttons) -->
             <div class="bg-[#111111] p-8 rounded-3xl border border-blue-500/30">
                 <div class="text-blue-400 text-3xl font-bold mb-2">$75</div>
                 <h3 class="text-2xl font-semibold mb-4">Spot Scratch Removal</h3>
                 <p class="text-slate-300">Perfect for removing minor scratches from a specific panel using professional paint refinishing tools.</p>
             </div>
-            <!-- ... (keep the other add-on cards exactly as they were) -->
+
+            <div class="bg-[#111111] p-8 rounded-3xl border border-blue-500/30">
+                <div class="text-blue-400 text-3xl font-bold mb-2">$25</div>
+                <h3 class="text-2xl font-semibold mb-4">Child Car Seat Cleaning</h3>
+                <p class="text-slate-300">Hot water extraction, foam shampoo, sanitize, and pneumatic air dry with baby-safe cleaners.</p>
+            </div>
+
+            <div class="bg-[#111111] p-8 rounded-3xl border border-blue-500/30">
+                <div class="text-blue-400 text-3xl font-bold mb-2">$120</div>
+                <h3 class="text-2xl font-semibold mb-4">Headlight Restoration</h3>
+                <p class="text-slate-300">4-step restoration with 3-year ceramic coating seal.</p>
+            </div>
+
+            <div class="bg-[#111111] p-8 rounded-3xl border border-blue-500/30">
+                <div class="text-blue-400 text-3xl font-bold mb-2">$49.99</div>
+                <h3 class="text-2xl font-semibold mb-4">Engine Bay Detail</h3>
+                <p class="text-slate-300">Degrease, agitate, pneumatic air dry, and water-based dressing.</p>
+            </div>
+
+            <div class="bg-[#111111] p-8 rounded-3xl border border-blue-500/30">
+                <div class="text-blue-400 text-3xl font-bold mb-2">$49</div>
+                <h3 class="text-2xl font-semibold mb-4">Faded Trim Restore & Ceramic Coating</h3>
+                <p class="text-slate-300">Restore faded trim with non-glossy restorative and long-lasting ceramic coating.</p>
+            </div>
+
+            <div class="bg-[#111111] p-8 rounded-3xl border border-blue-500/30">
+                <div class="text-blue-400 text-3xl font-bold mb-2">$40+</div>
+                <h3 class="text-2xl font-semibold mb-4">Pet Hair Removal</h3>
+                <p class="text-slate-300">Specialized removal of embedded pet hair. Price varies based on condition.</p>
+            </div>
         </div>
     </div>
 
-    <!-- ZIP MODAL + SCRIPT (same as index.html) -->
+    <!-- ZIP CODE MODAL -->
     <div id="zipModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-[999]">
         <div class="bg-[#111111] border border-blue-500/30 rounded-3xl p-10 max-w-md w-full mx-4">
             <h3 class="text-3xl font-bold text-white mb-6 text-center">Confirm Service Area</h3>
@@ -185,7 +215,7 @@
             icon.classList.toggle('fa-times');
         }
 
-        // ZIP Modal System (identical to index.html)
+        // ZIP Modal System
         const safeZips = ['77301','77302','77303','77304','77305','77306','77316','77318','77327','77328','77333','77338','77339','77345','77346','77353','77354','77355','77356','77357','77362','77365','77372','77373','77378','77379','77380','77381','77382','77384','77385','77386','77388','77389','77393','77447','77873','77014','77032','77073','77090','77096','77396'];
         let currentCalendlyLink = '';
 
